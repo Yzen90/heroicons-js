@@ -4,6 +4,7 @@
   - [Solid](#solid)
   - [Outline](#outline)
   - [Mini](#mini)
+  - [Micro](#micro)
 
 ## Usage
 
@@ -54,4 +55,19 @@ const { academicCap } = him;
 // OR
 
 import { academicCap } from '@xrnoz/heroicons-js/mini';
+```
+
+### Micro
+```typescript
+import * as heroicons from '@xrnoz/heroicons-js/micro';
+const { academicCap } = heroicons;
+
+// OR
+
+import { hix } from '@xrnoz/heroicons-js';
+const { academicCap } = hix;
+
+// OR
+
+import { academicCap } from '@xrnoz/heroicons-js/micro';
 ```

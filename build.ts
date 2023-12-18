@@ -1,6 +1,6 @@
 import { appendFileSync, mkdirSync, readFileSync } from 'fs';
 
-import glob from 'glob';
+import { glob } from 'glob';
 import { Parser } from 'htmlparser2';
 import _ from 'lodash';
 
@@ -19,6 +19,10 @@ const variants = [
     name: 'mini',
     path: '20/solid/',
   },
+  {
+    name: 'micro',
+    path: '16/solid/',
+  },
 ];
 
 let svg = '';
@@ -35,7 +39,7 @@ const parser = new Parser({
 for (const { name, path } of variants) {
   mkdirSync(name);
 
-  for (const file of glob.sync('*.svg', { cwd: base + path })) {
+  for (const file of glob.sync('*.svg', { cwd: base + path }).reverse()) {
     svg = '';
     parser.write(readFileSync(base + path + file, { encoding: 'utf-8' }));
 

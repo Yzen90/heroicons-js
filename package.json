@@ -1,7 +1,7 @@
 {
   "name": "@xrnoz/heroicons-js",
   "description": "Re-packaging of heroicons",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -9,7 +9,8 @@
     ".": "./dist/index.js",
     "./solid": "./dist/solid/index.js",
     "./outline": "./dist/outline/index.js",
-    "./mini": "./dist/mini/index.js"
+    "./mini": "./dist/mini/index.js",
+    "./micro": "./dist/micro/index.js"
   },
   "typesVersions": {
     "*": {
@@ -21,6 +22,9 @@
       ],
       "mini": [
         "dist/mini/index.d.ts"
+      ],
+      "micro": [
+        "dist/micro/index.d.ts"
       ]
     }
   },
@@ -29,27 +33,25 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "@tsconfig/node18-strictest-esm": "1.0.1",
-    "@types/glob": "8.0.1",
-    "@types/lodash": "4.14.191",
-    "@types/node": "18.13.0",
-    "glob": "8.1.0",
-    "heroicons": "2.0.15",
-    "htmlparser2": "8.0.1",
+    "@tsconfig/node20": "20.1.2",
+    "@tsconfig/strictest": "2.0.2",
+    "@types/glob": "8.1.0",
+    "@types/lodash": "4.14.202",
+    "@types/node": "20.10.5",
+    "del-cli": "5.1.0",
+    "glob": "10.3.10",
+    "heroicons": "2.1.1",
+    "htmlparser2": "9.0.0",
     "lodash": "4.17.21",
     "npm-run-all": "4.1.5",
-    "prettier": "2.8.4",
-    "rimraf": "4.1.2",
-    "ts-node": "10.9.1",
-    "typescript": "4.9.5"
-  },
-  "engines": {
-    "yarn": "=1.22.19"
+    "prettier": "3.1.1",
+    "tsx": "4.6.2",
+    "typescript": "5.3.3"
   },
   "scripts": {
     "build": "run-s -l build:*",
-    "build:clean": "rimraf dist solid outline mini",
-    "build:generate": "ts-node build.ts",
+    "build:clean": "del-cli dist solid outline mini micro",
+    "build:generate": "tsx build.ts",
     "build:compile": "tsc --project tsconfig.build.json",
     "fmt": "prettier --write .",
     "prepublishOnly": "yarn build"
@@ -59,9 +61,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/xrnoz/heroicons-js.git"
+    "url": "https://github.com/Yzen90/heroicons-js.git"
   },
-  "author": "Edgar Montiel Cruz <edgar@xrnoz.io>",
+  "author": "Edgar Montiel Cruz <edgar@xrnoz.pro>",
   "license": "MIT",
   "private": false
 }
